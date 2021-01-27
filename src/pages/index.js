@@ -212,7 +212,7 @@ const Home = () => {
           <button
             type="button"
             onClick={generateQRCode}
-            className="transition duration-200 bg-green-500 hover:bg-green-600 focus:bg-green-700 focus:shadow-sm text-white px-4 py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block focus:outline-none"
+            className="transition duration-200 bg-green-500 hover:bg-green-600 focus:bg-green-700 focus:shadow-sm text-white px-4 py-3 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block focus:outline-none"
           >
             <span className="inline-block">Generate QR Code</span>
           </button>
