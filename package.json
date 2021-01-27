@@ -1,0 +1,39 @@
+{
+  "name": "qr-code",
+  "version": "1.0.0",
+  "description": "Online qr code generator",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export"
+  },
+  "keywords": [
+    "qr-code"
+  ],
+  "author": "iitsuraj",
+  "license": "ISC",
+  "dependencies": {
+    "easyqrcodejs": "^4.3.1",
+    "easyqrcodejs-nodejs": "^4.2.1",
+    "next": "^10.0.5",
+    "next-compose-plugins": "^2.2.1",
+    "next-pwa": "^5.0.4",
+    "next-seo": "^4.17.0",
+    "qrcode": "^1.4.4",
+    "qrcode-with-logos": "^1.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-ga": "^3.3.0"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.0.0",
+    "@next/bundle-analyzer": "^10.0.4",
+    "autoprefixer": "^9.8.6",
+    "next-sitemap": "^1.4.5",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^14.0.0",
+    "tailwindcss": "^2.0.2"
+  }
+}
