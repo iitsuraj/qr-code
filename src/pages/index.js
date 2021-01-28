@@ -223,7 +223,7 @@ const Home = () => {
           Recent QR Codes
         </h2>
         {lastDownloads && Array.isArray(lastDownloads) ? (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-5">
             {lastDownloads.map((img, index) => (
               <Card img={img} key={index} />
             ))}

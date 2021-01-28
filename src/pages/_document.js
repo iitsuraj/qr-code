@@ -17,9 +17,9 @@ class MyDocument extends Document {
           />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
-          <meta name="msapplication-TileColor" content="#ce0000" />
+          <meta name="msapplication-TileColor" content="#4654A3" />
           <meta name="msapplication-tap-highlight" content="no" />
-          <meta name="theme-color" content="#ce0000" />
+          <meta name="theme-color" content="#4654A3" />
           <link
             rel="apple-touch-icon"
             sizes="180x180"

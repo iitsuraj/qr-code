@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
-Host: https://ytthumbnaildownloader.itsuraj.com
-Sitemap: https://ytthumbnaildownloader.itsuraj.com/sitemap.xml
+
+# Host
+Host: https://qr-code.itsuraj.com
+
+# Sitemaps
+Sitemap: https://qr-code.itsuraj.com/sitemap.xml

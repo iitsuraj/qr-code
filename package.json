@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export"
+    "build": "next build && next export",
+    "postbuild": "next-sitemap"
   },
   "keywords": [
     "qr-code"
@@ -14,13 +15,10 @@
   "license": "ISC",
   "dependencies": {
     "easyqrcodejs": "^4.3.1",
-    "easyqrcodejs-nodejs": "^4.2.1",
     "next": "^10.0.5",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.0.4",
     "next-seo": "^4.17.0",
-    "qrcode": "^1.4.4",
-    "qrcode-with-logos": "^1.0.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-ga": "^3.3.0"

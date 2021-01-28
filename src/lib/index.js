@@ -15,8 +15,9 @@ export const addANewDownload = (dataUri) => {
     let lastDownloaded = lastDownloadedStorage();
     if (lastDownloaded) {
       lastDownloaded = lastDownloaded || [];
-      lastDownloaded.push(dataUri);
+      lastDownloaded = [dataUri, ...lastDownloaded];
       lastDownloaded = [...new Set(lastDownloaded)];
+      lastDownloaded.splice(9, lastDownloaded.length);
       localStorage.setItem(
         "@last-downloaded",
         JSON.stringify({ data: lastDownloaded })
