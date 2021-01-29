@@ -51,7 +51,7 @@ const AppInfo = () => {
         </p>
       </div>
       <div className="my-10">
-        <h2 className={"font-semibold"}>Why Use Logo QR Cod ?</h2>
+        <h2 className={"font-semibold"}>Why Use Logo QR Code Generator ?</h2>
         <p className="my-3">
           Make your brand instantly recognizable as your company logo becomes
           the center of attention on your QR Code.
