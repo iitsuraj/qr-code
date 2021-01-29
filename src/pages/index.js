@@ -4,7 +4,8 @@ import Modal from "components/modal";
 import { addANewDownload, lastDownloadedStorage } from "lib/index";
 import Card from "components/card";
 import Head from "next/head";
-import { NextSeo } from "next-seo";
+import { NextSeo, LogoJsonLd } from "next-seo";
+import AppInfo from "components/appInfo";
 
 const Home = () => {
   const [textValue, setTextValue] = useState("");
@@ -41,7 +42,7 @@ const Home = () => {
   const supportedFormates = [
     {
       slug: "url",
-      name: "URL",
+      name: "URL / LINK",
       placeholder: "Enter Your Website Address",
       custom: false,
       logo: "🌐",
@@ -75,7 +76,7 @@ const Home = () => {
       name: "PHONE",
       placeholder: "Enter Phone Number",
       custom: false,
-      logo: "☎ ",
+      logo: "📱",
       prefix: "tel:",
     },
   ];
@@ -111,7 +112,11 @@ const Home = () => {
   const openFilePicker = () => {
     inputFile.current.click();
   };
-  function canvasDownload(canvas, filename) {
+  const imageDownloader = (
+    canvas,
+    filename = "itsuraj.com-download.png",
+    dataURI
+  ) => {
     /// create an "off-screen" anchor tag
     var lnk = document.createElement("a"),
       e;
@@ -122,9 +127,14 @@ const Home = () => {
     /// convert canvas content to data-uri for link. When download
     /// attribute is set the content pointed to by link will be
     /// pushed as "download" in HTML5 capable browsers
-    lnk.href = canvas.toDataURL("image/png;base64");
-    addANewDownload(lnk.href);
-    setLastDownloads([...new Set([lnk.href, ...lastDownloads])]);
+    if (canvas) {
+      lnk.href = canvas.toDataURL("image/png;base64");
+      addANewDownload(lnk.href);
+      setLastDownloads([...new Set([lnk.href, ...lastDownloads])]);
+    }
+    if (dataURI) {
+      lnk.href = dataURI;
+    }
     /// create a "fake" click-event to trigger the download
     if (document.createEvent) {
       e = document.createEvent("MouseEvents");
@@ -150,10 +160,10 @@ const Home = () => {
     } else if (lnk.fireEvent) {
       lnk.fireEvent("onclick");
     }
-  }
+  };
   const downloadQR = () => {
     var canvas = document.querySelector("#QRCODE canvas");
-    canvasDownload(canvas, "download.png");
+    imageDownloader(canvas, undefined, undefined);
   };
   const [lastDownloads, setLastDownloads] = useState([]);
   useEffect(() => {
@@ -169,6 +179,7 @@ const Home = () => {
     url: "https://qr-code.itsuraj.com/",
     image: "https://qr-code.itsuraj.com/social-1200x800.png",
   };
+
   return (
     <section className="container mx-auto h-screen">
       <NextSeo
@@ -185,6 +196,10 @@ const Home = () => {
             },
           ],
         }}
+      />
+      <LogoJsonLd
+        logo="https://qr-code.itsuraj.com/apple-touch-icon.png"
+        url="https://qr-code.itsuraj.com"
       />
       <Head>
         <meta name="twitter:title" content={home.title} />
@@ -225,7 +240,7 @@ const Home = () => {
         {lastDownloads && Array.isArray(lastDownloads) ? (
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-5">
             {lastDownloads.map((img, index) => (
-              <Card img={img} key={index} />
+              <Card img={img} key={index} download={imageDownloader} />
             ))}
           </div>
         ) : null}
@@ -252,6 +267,7 @@ const Home = () => {
         canvas={canvas}
         downloadQR={downloadQR}
       />
+      <AppInfo />
     </section>
   );
 };
